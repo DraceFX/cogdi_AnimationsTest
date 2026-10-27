@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>AdvancedSharpAdbClient</id>
+    <version>3.6.16</version>
+    <title>.NET client for adb, Android Debug Bridge (AdvancedSharpAdbClient)</title>
+    <authors>The Android Open Source Project, Ryan Conrad, Quamotion and improved by yungd1plomat and wherewhere</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <icon>Icon.png</icon>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/SharpAdb/AdvancedSharpAdbClient</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/SharpAdb/AdvancedSharpAdbClient/main/logo.png</iconUrl>
+    <description>AdvancedSharpAdbClient is a .NET library that allows .NET, Mono, Unity applications to communicate with Android devices. It's a improved version of SharpAdbClient.</description>
+    <releaseNotes>https://github.com/SharpAdb/AdvancedSharpAdbClient/releases</releaseNotes>
+    <copyright>Copyright © 2021 - 2026 SharpAdb. All Rights Reserved.</copyright>
+    <tags>Android ADB Communication UWP Xamarin WinUI MAUI Mono Unity SharpAdbClient AdvancedSharpAdbClient</tags>
+    <repository type="git" url="https://github.com/SharpAdb/AdvancedSharpAdbClient" branch="refs/heads/main" commit="888c744dafe429037831397fe8b9f6111a4e4430" />
+    <dependencies>
+      <group targetFramework=".NETCore5.0">
+        <dependency id="System.Drawing.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Sockets" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Xml.XmlDocument" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework2.0">
+        <dependency id="LinqBridge" version="1.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="AsyncBridge" version="0.3.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="Microsoft.Bcl.Async" version="1.0.168" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="Microsoft.Bcl.HashCode" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.8">
+        <dependency id="Microsoft.Bcl.HashCode" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.3">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+        <dependency id="System.Xml.XmlDocument" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="UAP10.0">
+        <dependency id="System.Drawing.Primitives" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp2.1" />
+      <group targetFramework=".NETCoreApp3.1" />
+      <group targetFramework="net6.0" />
+      <group targetFramework="net8.0" />
+      <group targetFramework="net8.0-windows10.0.17763" />
+      <group targetFramework="net10.0" />
+      <group targetFramework="net10.0-windows10.0.17763" />
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Bcl.HashCode" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.1" />
+      <group targetFramework="UAP10.0.15138">
+        <dependency id="Microsoft.Bcl.HashCode" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
