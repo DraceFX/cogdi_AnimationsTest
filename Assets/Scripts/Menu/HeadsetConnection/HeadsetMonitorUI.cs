@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,11 +14,24 @@ public class HeadsetMonitorUI : MonoBehaviour
     [SerializeField] private TMP_Text storageText;
     [SerializeField] private TMP_Text serialText;
 
+
+    [Header("Model Image")]
+    [SerializeField] private Image modelImage;                          // UI Image под спрайт шлема
+    [SerializeField] private Sprite fallbackModelSprite;
+    [SerializeField] private List<ModelImagePair> modelSprites = new List<ModelImagePair>();
+
     [Header("Apk Install")]
     [SerializeField] private Button installApkButton;
     [SerializeField] private TMP_Text installStatusText;
 
     public event Action InstallApkClicked;
+
+    [Serializable]
+    public class ModelImagePair
+    {
+        public string DisplayModel;
+        public Sprite Image;
+    }
 
     private void Awake()
     {
@@ -32,6 +46,7 @@ public class HeadsetMonitorUI : MonoBehaviour
         if (modelText == null) return;
 
         modelText.text = string.IsNullOrEmpty(displayName) ? "Не подключено" : displayName;
+        UpdateModelImage(displayName);
     }
 
     public void UpdateBattery(int level)
@@ -92,5 +107,36 @@ public class HeadsetMonitorUI : MonoBehaviour
         {
             installStatusText.color = color.Value;
         }
+    }
+
+    private void UpdateModelImage(string displayName)
+    {
+        if (modelImage == null) return;
+
+        if (string.IsNullOrEmpty(displayName))
+        {
+            modelImage.sprite = fallbackModelSprite;
+            modelImage.enabled = fallbackModelSprite != null;
+            return;
+        }
+
+        // Точное совпадение по DisplayModel
+        foreach (var pair in modelSprites)
+        {
+            if (pair == null || pair.Image == null || string.IsNullOrEmpty(pair.DisplayModel)) continue;
+
+            if (string.Equals(pair.DisplayModel, displayName, StringComparison.OrdinalIgnoreCase))
+            {
+                modelImage.sprite = pair.Image;
+                modelImage.enabled = true;
+                return;
+            }
+        }
+
+        // Не нашли — fallback
+        modelImage.sprite = fallbackModelSprite;
+        modelImage.enabled = fallbackModelSprite != null;
+
+        Debug.LogWarning($"Нет спрайта для модели '{displayName}', показан fallback.");
     }
 }
