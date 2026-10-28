@@ -35,6 +35,7 @@ public class HeadsetMonitor : MonoBehaviour
     private readonly HashSet<string> _tcpipEnabledSerials = new HashSet<string>();
 
     public HeadsetDevice ConnectedDevice { get; private set; }
+    public AdbExecutor AdbExecutor => _adb;
 
     private async void Start()
     {
